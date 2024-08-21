@@ -44,13 +44,14 @@ let getJSONData = function (DATA_URL){
 });
 }
 
-document.addEventListener ('load', function(){
- getJSONData(DATA_URL).then(function(response){
-if (response.status == 'ok'){
- showData (dataArray)
+ getJSONData(DATA_URL).then(response =>{
+if (response.status === 'ok'){
+ showData(response.data.students);
+}else{
+  console.error ('Error al recibir los datos:', response.data);
 }
  })
-})
+
 
 
 
